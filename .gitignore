@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+*.pyc
+runs/
+outputs/
+*.log
+local_data/
+datasets/
+*.onnx

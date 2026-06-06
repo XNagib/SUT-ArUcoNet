@@ -1,0 +1,76 @@
+{
+  "name": "SUT-ArUcoNet",
+  "version": "v1.0",
+  "release_type": "public_inference_release",
+  "license": "AGPL-3.0",
+  "created_date": "2026-06-06",
+  "pipeline": [
+    "YOLO26n detector",
+    "CornerRefiner64",
+    "deterministic 4x4_1000 bit decoder"
+  ],
+  "supported_dictionaries": [
+    "4x4_1000"
+  ],
+  "runtime_defaults": {
+    "imgsz": 416,
+    "conf": 0.25,
+    "iou": 0.5,
+    "max_hamming": 0,
+    "padding": 0.2
+  },
+  "assets": {
+    "detector": {
+      "file": "detector.pt",
+      "architecture": "YOLO26n detector",
+      "input_resolution": 416,
+      "sha256": "4ca8eaf57fbc20410548083fd49c8755d9a9327f722e52da4a755253e99c5f6f",
+      "size_bytes": 5388541
+    },
+    "corner_refiner": {
+      "file": "corner_refiner.pt",
+      "architecture": "CornerRefiner64",
+      "input_resolution": 64,
+      "sha256": "8bd4eadc73b9264832709294370ae18f176818d0cc55d9d620af868645234933",
+      "size_bytes": 946109
+    }
+  },
+  "approved_local_evaluation_summary": {
+    "camera_reviewed_val_bestdet_newcorner_sample_h0_lenient25": {
+      "frames": 761,
+      "gt_markers": 2549,
+      "predictions": 2513,
+      "matches": 2229,
+      "recall": 0.8745,
+      "precision": 0.887,
+      "mean_runtime_ms": 18.241,
+      "p95_runtime_ms": 24.555
+    },
+    "camera_reviewed_val_bestdet_newcorner_sample_h0_strict8": {
+      "frames": 761,
+      "gt_markers": 2549,
+      "predictions": 2513,
+      "matches": 2176,
+      "recall": 0.8537,
+      "precision": 0.8659,
+      "mean_corner_error_px": 2.3739,
+      "p95_corner_error_px": 5.5702,
+      "mean_runtime_ms": 19.114,
+      "p95_runtime_ms": 28.79
+    }
+  },
+  "notes": [
+    "This public release contains stable inference only.",
+    "Only stable runtime files are included.",
+    "ID decoding is trusted only when deterministic decoding passes the configured Hamming threshold."
+  ],
+  "provenance": {
+    "research_source_detector_sha256": "6b0a65546f5d761a46679379f11ed19c34d1895bdd530bc7646df6f5bb7f95df",
+    "public_detector_sha256": "4ca8eaf57fbc20410548083fd49c8755d9a9327f722e52da4a755253e99c5f6f",
+    "relationship": "same learned detector tensors; public checkpoint was re-saved after removing private training metadata",
+    "conversion": "not converted; PyTorch .pt checkpoint format preserved",
+    "sanitization": "removed/redacted local training save_dir metadata before public release",
+    "tensor_digest_sha256": "b9541bae255c46132b51c04a4d159380e65acea40d1a615a3842d8859b19d307",
+    "max_abs_tensor_diff_vs_research_source": 0.0
+  }
+}
