@@ -1,0 +1,49 @@
+{
+  "name": "SUT-ArUcoNet v1",
+  "version": "v1",
+  "release_type": "public_inference_release",
+  "license": "AGPL-3.0",
+  "pipeline": [
+    "YOLO26n detector",
+    "CornerRefiner64",
+    "deterministic 4x4_1000 bit decoder"
+  ],
+  "core_supported_dictionary": "4x4_1000",
+  "supported_dictionaries": [
+    "4x4_1000",
+    "mip36h12"
+  ],
+  "dictionary_status": {
+    "4x4_1000": "core",
+    "mip36h12": "SUT-ArUcoNet v1 MIP extension"
+  },
+  "runtime_defaults": {
+    "imgsz": 416,
+    "conf": 0.25,
+    "iou": 0.5,
+    "max_hamming": 0,
+    "padding": 0.2,
+    "dictionary": "4x4_1000"
+  },
+  "assets": {
+    "detector": {
+      "file": "detector.pt",
+      "architecture": "YOLO26n detector",
+      "input_resolution": 416,
+      "sha256": "4ca8eaf57fbc20410548083fd49c8755d9a9327f722e52da4a755253e99c5f6f",
+      "size_bytes": 5388541
+    },
+    "corner_refiner": {
+      "file": "corner_refiner.pt",
+      "architecture": "CornerRefiner64",
+      "input_resolution": 64,
+      "sha256": "8bd4eadc73b9264832709294370ae18f176818d0cc55d9d620af868645234933",
+      "size_bytes": 946109
+    }
+  },
+  "public_release_scope": [
+    "inference package",
+    "model weights",
+    "usage documentation"
+  ]
+}
