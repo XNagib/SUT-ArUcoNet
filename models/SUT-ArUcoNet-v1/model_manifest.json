@@ -45,5 +45,19 @@
     "inference package",
     "model weights",
     "usage documentation"
-  ]
+  ],
+  "model_identity": {
+    "status": "closed",
+    "checked_at": "2026-06-08T19:14:17+02:00",
+    "model_identity_key": {
+      "detector_tensor_sha256": "72516d9e108fb1b773174b5db5e27ba0323492294f7bc23912831e4d224f850f",
+      "corner_refiner_file_sha256": "8bd4eadc73b9264832709294370ae18f176818d0cc55d9d620af868645234933"
+    },
+    "deployment_canonical": true,
+    "equivalent_research_detector_file_sha256": "6b0a65546f5d761a46679379f11ed19c34d1895bdd530bc7646df6f5bb7f95df",
+    "public_detector_file_sha256": "4ca8eaf57fbc20410548083fd49c8755d9a9327f722e52da4a755253e99c5f6f",
+    "max_abs_tensor_difference_vs_research_checkpoint": 0.0,
+    "file_hash_note": "The detector.pt file hash differs from the research checkpoint because this public checkpoint has sanitized public-release metadata. The loaded detector model.state_dict tensor digest matches exactly.",
+    "robot_integration_note": "Use this model directory as the deployment artifact for SUT-ArUcoNet v1."
+  }
 }
